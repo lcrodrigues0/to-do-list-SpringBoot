@@ -13,13 +13,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     @Autowired                                  // Automatically injects dependencies.
     private IUserRepository userRepository;
 
     @GetMapping("/")
-    public String userWorking() {
+    public String working() {
         return "User controller is working!";
     }
     
