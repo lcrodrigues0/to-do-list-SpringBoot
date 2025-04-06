@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,7 +19,8 @@ public class UserModel {
     private UUID id;                        // UUID is a java class to generate and work with universal unique identifiers. A random identifier is created.
 
 
-    // @Column(name = "user")      // JPA annotation to change the name of the column associated with this atributte
+    // @Column(name = "user")       // JPA annotation to change the name of the column associated with this atributte
+    @Column(unique = true)          
     private String username;
     private String name;
     private String password;
