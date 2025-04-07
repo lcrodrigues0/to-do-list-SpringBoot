@@ -32,7 +32,7 @@ public class FilterTaskAuth extends OncePerRequestFilter{
             return; 
         }
 
-        // Gets the authentication
+        // Get the authentication
         var authorization = request.getHeader("Authorization");
         var authEncoded = authorization.substring("Basic".length()).trim();
 
@@ -44,8 +44,6 @@ public class FilterTaskAuth extends OncePerRequestFilter{
         String username = credentials[0];
         String password = credentials[1];
         
-        System.out.println(password);
-
         // Validate user
         var user = userRepository.findByUsername(username);
         if(user == null){

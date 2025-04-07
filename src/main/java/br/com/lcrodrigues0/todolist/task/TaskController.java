@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -22,10 +24,10 @@ public class TaskController {
     @Autowired
     private ITaskRepository taskRepository;
 
-    @GetMapping("/")
-    public String working() {
-        return "Task controller is working!";
-    }   
+    // @GetMapping("/")
+    // public String working() {
+    //     return "Task controller is working!";
+    // }   
 
     @SuppressWarnings("rawtypes")
     @PostMapping("/")
@@ -45,4 +47,12 @@ public class TaskController {
 
         return ResponseEntity.status(HttpStatus.OK).body(taskCreated);
     }   
+
+    @GetMapping("/")
+    public ResponseEntity list(HttpServletRequest request) {
+        var taskList = taskRepository.findAllByUserId((UUID) request.getAttribute("userId"));
+
+        return ResponseEntity.status(HttpStatus.OK).body(taskList);
+    }
+    
 }
