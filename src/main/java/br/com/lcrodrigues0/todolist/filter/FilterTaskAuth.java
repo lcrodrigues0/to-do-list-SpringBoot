@@ -27,7 +27,7 @@ public class FilterTaskAuth extends OncePerRequestFilter{
         var servletPath = request.getServletPath();
 
         // If the path is not tasks, we don't need to authenticate
-        if(!servletPath.equals("/tasks/")){
+        if(!servletPath.startsWith("/tasks/")){
             filterChain.doFilter(request, response);
             return; 
         }
