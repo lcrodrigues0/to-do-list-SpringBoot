@@ -1,5 +1,6 @@
 package br.com.lcrodrigues0.todolist.task;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,22 @@ public class TaskController {
         return "Task controller is working!";
     }   
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/")
-    public TaskModel create(@RequestBody TaskModel task, HttpServletRequest request) {
+    public ResponseEntity create(@RequestBody TaskModel task, HttpServletRequest request) {
         task.setUserId((UUID)request.getAttribute("userId"));
 
+        var currentDate = LocalDateTime.now();
+
+        if(currentDate.isAfter(task.getStartAt()) || currentDate.isAfter(task.getEndAt())){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid date.");
+
+        } else if (task.getStartAt().isAfter(task.getEndAt())){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid date range.");
+        }
+
         var taskCreated = taskRepository.save(task);
-        return taskCreated;
+
+        return ResponseEntity.status(HttpStatus.OK).body(taskCreated);
     }   
 }
