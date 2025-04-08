@@ -10,6 +10,6 @@ RUN mvn clean install
 
 EXPOSE 8080
 
-COPY target/todolist-0.0.1.jar app.jar
+COPY /target/todolist-0.0.1.jar app.jar
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
