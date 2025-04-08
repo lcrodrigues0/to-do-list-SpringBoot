@@ -10,6 +10,8 @@ RUN mvn clean install
 
 EXPOSE 8080
 
-COPY /target/todolist-0.0.1.jar app.jar
+FROM openjdk:17-jdk-slim
+
+COPY --from=build /target/todolist-0.0.1.jar app.jar
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
