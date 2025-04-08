@@ -67,6 +67,10 @@ public class TaskController {
 
         TaskModel updatedTask = previousTaskOpt.get();
 
+        if (! request.getAttribute("userId").equals(updatedTask.getUserId())){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The user is not allowed to change this task.");
+        }
+
         Utils.copyNonNullProperties(task, updatedTask);
 
         taskRepository.save(updatedTask);
