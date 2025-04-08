@@ -39,10 +39,9 @@ A API está hospedada em: [TodoList API](https://todolist-api-6ouf.onrender.com)
       "priority": "Alta"
     }
     ```
-
 - **Listar Tasks**
   - **`GET `/tasks`**
-
+    
 - **Alterar Task**
   - **`PATCH `/tasks/{id}`**
   - Body JSON:
