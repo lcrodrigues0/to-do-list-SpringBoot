@@ -2,21 +2,21 @@
 
 Esta API foi desenvolvida com Spring Boot para fins de aprendizado, oferecendo funcionalidades básicas para o gerenciamento de tarefas (tasks).
 
-## 📌 Funcionalidades  
+### 📌 Funcionalidades  
 
 - **Cadastro de usuários** (*users*)  
 - **Criação de tarefas** associadas a um usuário  
 - **Listagem de tarefas** cadastradas  
 - **Edição de tarefas** existentes  
 
-## Deploy
+## 🚀 Deploy
 A API está hospedada em: [TodoList API](https://todolist-api-6ouf.onrender.com)
 
-## Endpoints
+## 🌐 Endpoints
 
 ### Usuário (User)
 - **Criar Usuário**
-  - **POST** `/users`
+  - **`POST /users`**
   - Body JSON:
     ```json
     {
@@ -28,7 +28,7 @@ A API está hospedada em: [TodoList API](https://todolist-api-6ouf.onrender.com)
 
 ### Tasks
 - **Criar Task**
-  - **POST** `/tasks`
+  - **`POST /tasks`**
   - Body JSON:
     ```json
     {
@@ -41,10 +41,10 @@ A API está hospedada em: [TodoList API](https://todolist-api-6ouf.onrender.com)
     ```
 
 - **Listar Tasks**
-  - **GET** `/tasks`
+  - **`GET `/tasks`**
 
 - **Alterar Task**
-  - **PATCH** `/tasks/{id}`
+  - **`PATCH `/tasks/{id}`**
   - Body JSON:
     ```json
     {
