@@ -10,7 +10,7 @@ Esta API foi desenvolvida com Spring Boot para fins de aprendizado, oferecendo f
 - **Edição de tarefas** existentes  
 
 ## 🚀 Deploy
-A API está hospedada em: [TodoList API](https://todolist-api-6ouf.onrender.com)
+A API está hospedada em: https://todolist-api-6ouf.onrender.com
 
 ## 🌐 Endpoints
 
